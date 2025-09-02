@@ -133,7 +133,7 @@ function yearCandidates(birthDate?: string, extra?: string): string[] {
   years.push(String(now - 2))
   if (extra) {
     // Accept multiple numbers separated by any non-digit separator
-    const tokens = extra.split(/[^0-9]+/).map(t => t.trim()).filter(Boolean)
+    const tokens = extra.split(/\D+/).map(t => t.trim()).filter(Boolean)
     for (const t of tokens) {
       if (t.length >= 1 && t.length <= 6) years.push(t)
     }

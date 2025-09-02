@@ -1,29 +1,56 @@
 "use client"
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { generateEmails, generateWordlist, generateUsernames, preview, limits, EmailWordlistInput } from '../_lib/emailWordlist'
 import { isValidDomain } from '../_lib/validation'
 import EthicsNotice from './EthicsNotice'
 
 const defaultProviders = ['gmail.com', 'hotmail.com', 'yahoo.com']
 
-// OSINT Tooltip Component
-const OSINTTooltip = ({ children, tip }: { children: React.ReactNode, tip: string }) => {
+// OSINT Tooltip Component (accessible)
+const OSINTTooltip = ({ children, tip }: { children: React.ReactNode; tip: string }) => {
   const [show, setShow] = useState(false)
+  const tooltipId = useId()
+
+  const showTip = () => setShow(true)
+  const hideTip = () => setShow(false)
+  const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      setShow((s) => !s)
+    }
+    if (e.key === 'Escape') hideTip()
+  }
+
   return (
     <div className="relative inline-block">
-      <div 
-        onMouseEnter={() => setShow(true)} 
-        onMouseLeave={() => setShow(false)}
+      <div
+        role="button"
+        tabIndex={0}
+        aria-haspopup="true"
+        aria-expanded={show}
+        aria-describedby={tooltipId}
+        onMouseEnter={showTip}
+        onMouseLeave={hideTip}
+        onFocus={showTip}
+        onBlur={hideTip}
+        onTouchStart={showTip}
+        onTouchEnd={hideTip}
+        onKeyDown={onKeyDown}
         className="cursor-help"
       >
         {children}
       </div>
-      {show && (
-        <div className="absolute z-50 p-3 bg-gray-800 text-xs rounded-lg shadow-xl border border-primary/20 w-72 -top-2 left-full ml-2">
-          <div className="text-primary font-semibold mb-1">🔍 OSINT Tip:</div>
-          {tip}
-        </div>
-      )}
+      <div
+        id={tooltipId}
+        role="tooltip"
+        aria-hidden={!show}
+        className={`absolute z-50 p-3 bg-gray-800 text-xs rounded-lg shadow-xl border border-primary/20 w-72 -top-2 left-full ml-2 ${
+          show ? 'block' : 'hidden'
+        }`}
+      >
+        <div className="text-primary font-semibold mb-1">🔍 OSINT Tip:</div>
+        {tip}
+      </div>
     </div>
   )
 }
@@ -246,7 +273,11 @@ const EmailWordlistGenerator = () => {
               {/* Real-time Stats */}
               <div className="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-primary/20">
                 <div className="text-center">
-                  <div className="text-blue-400 font-bold text-sm">{Object.values(form).filter(v => v && v.toString().trim()).length}</div>
+                  <div className="text-blue-400 font-bold text-sm">{Object.values(form).filter(v => {
+                    if (Array.isArray(v)) return v.length > 0
+                    if (typeof v === 'string') return v.trim().length > 0
+                    return v !== undefined && v !== null
+                  }).length}</div>
                   <div className="text-xs text-text-muted">Fields</div>
                 </div>
                 <div className="text-center">
@@ -255,7 +286,7 @@ const EmailWordlistGenerator = () => {
                 </div>
                 <div className="text-center">
                   <div className="text-yellow-400 font-bold text-sm">
-                    {result ? `${result.emails.length + result.passwords.length + result.usernames.length}` : '0'}
+                    {(result?.emails.length ?? 0) + (result?.passwords.length ?? 0) + (result?.usernames.length ?? 0)}
                   </div>
                   <div className="text-xs text-text-muted">Generated</div>
                 </div>
@@ -278,7 +309,7 @@ const EmailWordlistGenerator = () => {
                 <OSINTTooltip tip="First names are OSINT goldmines! 🎯 Check LinkedIn company pages, About Us sections, team photos, conference speaker lists, and GitHub commits. Variations like John→Johnny→J are automatically generated for maximum coverage.">
                   <label htmlFor="firstName" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
-                    First name 
+                    <span>First name</span>
                   </label>
                 </OSINTTooltip>
                 <input 
@@ -295,7 +326,7 @@ const EmailWordlistGenerator = () => {
                 <OSINTTooltip tip="Nicknames and handles are OSINT treasures! 🎮 Gaming profiles (Steam, Xbox Live), social media handles (@johnny2023), forum usernames, GitHub profiles. These often reveal personal patterns used across multiple platforms.">
                   <label htmlFor="nickname" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-green-400 rounded-full"></span>
-                    Nickname/Handle 
+                    <span>Nickname/Handle</span>
                   </label>
                 </OSINTTooltip>
                 <input 
@@ -314,7 +345,7 @@ const EmailWordlistGenerator = () => {
                   <OSINTTooltip tip="Middle initials unlock email patterns! 📧 john.a.doe@company.com is extremely common in corporate environments. Check email signatures, business cards, and professional directories.">
                     <label htmlFor="middleInitial" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
-                      Middle initial 
+                      <span>Middle initial</span>
                     </label>
                   </OSINTTooltip>
                   <input 
@@ -330,7 +361,7 @@ const EmailWordlistGenerator = () => {
                   <OSINTTooltip tip="Surnames are OSINT goldmines! 🏢 Corporate directories, LinkedIn, press releases, conference speakers. Watch for cultural variations (Smith vs Schmitt) and consider married vs maiden names.">
                     <label htmlFor="lastName" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-yellow-400 rounded-full"></span>
-                      Last name 
+                      <span>Last name</span>
                     </label>
                   </OSINTTooltip>
                   <input 
@@ -352,7 +383,7 @@ const EmailWordlistGenerator = () => {
                 <OSINTTooltip tip="Full middle names unlock password complexity! 🔐 Found in: professional bios, academic papers, legal documents, wedding announcements. Creates patterns like 'JohnAlexander123' or 'J.Alexander.Smith'.">
                   <label htmlFor="middleName" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-cyan-400 rounded-full"></span>
-                    Middle name (full) 
+                    <span>Middle name (full)</span>
                   </label>
                 </OSINTTooltip>
                 <input 
@@ -371,7 +402,7 @@ const EmailWordlistGenerator = () => {
                   <OSINTTooltip tip="Maiden names = password goldmines! 💎 Security questions favorite. Check: wedding announcements, genealogy sites, family social posts, obituaries. Often combined with birth years in passwords.">
                     <label htmlFor="maidenName" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-pink-400 rounded-full"></span>
-                      Mother&rsquo;s maiden name 
+                      <span>Mother&rsquo;s maiden name</span>
                     </label>
                   </OSINTTooltip>
                   <input 
@@ -388,7 +419,7 @@ const EmailWordlistGenerator = () => {
                   <OSINTTooltip tip="Father's names in cultural patterns! 👨 Many cultures use patronymic naming. Found in: family trees, obituaries, social media family posts, immigration records. Creates patterns like 'JohnRobert' or 'John_Robert'.">
                     <label htmlFor="fatherName" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
-                      Father&rsquo;s name 
+                      <span>Father&rsquo;s name</span>
                     </label>
                   </OSINTTooltip>
                   <input 
@@ -406,7 +437,7 @@ const EmailWordlistGenerator = () => {
                 <OSINTTooltip tip="Spouse names = HIGH password probability! 💕 Found in: wedding announcements, couple photos, joint social media accounts, family posts. Creates romantic password patterns like 'John&Sarah2018' or 'JohnSarah'.">
                   <label htmlFor="spouseName" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-rose-400 rounded-full"></span>
-                    Spouse&rsquo;s name 
+                    <span>Spouse&rsquo;s name</span>
                   </label>
                 </OSINTTooltip>
                 <input 
@@ -429,7 +460,7 @@ const EmailWordlistGenerator = () => {
                 <OSINTTooltip tip="Username patterns are OSINT treasure! 🏆 Cross-platform analysis reveals personal preferences. Check: GitHub commits, forum signatures, gaming profiles, social handles. Pattern analysis shows john.doe → jdoe → johnnyboy evolution.">
                   <label htmlFor="usernames" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-green-400 rounded-full"></span>
-                    Known usernames/handles
+                    <span>Known usernames/handles</span>
                   </label>
                 </OSINTTooltip>
                 <textarea 
@@ -452,7 +483,7 @@ const EmailWordlistGenerator = () => {
                   <OSINTTooltip tip="Birth dates = password jackpot! 🎰 80% of people use birth-related data. Found in: social media bios, birthday posts, company profiles. Generates patterns: DDMMYYYY, MMDDYYYY, DD/MM/YY, just the year, age calculations.">
                     <label htmlFor="birthDate" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
-                      Birth date
+                      <span>Birth date</span>
                     </label>
                   </OSINTTooltip>
                   <input
@@ -472,7 +503,7 @@ const EmailWordlistGenerator = () => {
                   <OSINTTooltip tip="Significant numbers unlock memories! 🔢 Graduation year, wedding anniversary, house number, employee ID, lucky numbers, favorite sports jersey. Often combined with names in passwords.">
                     <label htmlFor="extraYearOrNumber" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></span>
-                      Significant number
+                      <span>Significant number</span>
                     </label>
                   </OSINTTooltip>
                   <input 
@@ -497,7 +528,7 @@ const EmailWordlistGenerator = () => {
                   <OSINTTooltip tip="Pet names = password favorites! 🐾 Pets are family. Found in: social media photos, vet check-ins, pet insurance, Instagram captions. Creates emotional passwords like 'MaxBuddy123' or 'BellaLove2020'.">
                     <label htmlFor="petNames" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></span>
-                      Pet names
+                      <span>Pet names</span>
                     </label>
                   </OSINTTooltip>
                   <textarea 
@@ -516,7 +547,7 @@ const EmailWordlistGenerator = () => {
                   <OSINTTooltip tip="Children's names = ultimate password material! 👶 Parents ALWAYS use kids' names. Found in: family photos, school events, sports teams, birthday posts. Creates patterns like 'EmmaLiam2018' or 'MyEmma123'.">
                     <label htmlFor="childrenNames" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></span>
-                      Children&rsquo;s names
+                      <span>Children&rsquo;s names</span>
                     </label>
                   </OSINTTooltip>
                   <textarea 
@@ -536,7 +567,7 @@ const EmailWordlistGenerator = () => {
                 <OSINTTooltip tip="Brand loyalty = password patterns! ⚽ Sports teams, bands, tech brands create passionate passwords. Found in: social media likes, photos with jerseys, concert check-ins, product reviews. Creates 'Lakers2023' or 'AppleFan' patterns.">
                   <label htmlFor="favoriteTeam" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></span>
-                    Favorite team/brand/interest
+                    <span>Favorite team/brand/interest</span>
                   </label>
                 </OSINTTooltip>
                 <input 
@@ -559,7 +590,7 @@ const EmailWordlistGenerator = () => {
                 <OSINTTooltip tip="Provider patterns reveal target context! 📧 Gmail/Yahoo = personal accounts, Corporate domains = business targets. Choose based on your authorized test scope and discovered email patterns.">
                   <p className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-cyan-400 rounded-full"></span>
-                    Email providers
+                    <span>Email providers</span>
                   </p>
                 </OSINTTooltip>
                 <div className="grid grid-cols-3 gap-2">
@@ -582,7 +613,7 @@ const EmailWordlistGenerator = () => {
                 <OSINTTooltip tip="Corporate domains are high-value targets. Company email patterns unlock entire organizations. Found in: email signatures, LinkedIn, job postings, press releases. Reveals firstname.lastname@company.com patterns.">
                   <label htmlFor="customDomains" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
-                    Custom domains
+                    <span>Custom domains</span>
                   </label>
                 </OSINTTooltip>
                 <input
