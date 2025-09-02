@@ -77,48 +77,48 @@ const EmailWordlistGenerator = () => {
 
   return (
     <section className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-2">Gerador de E-mails e Wordlists</h1>
-      <p className="text-text-muted mb-6">Tudo client-side. Gere variações plausíveis de e-mails e senhas para pentest/OSINT/autoteste.</p>
+      <h1 className="text-2xl font-bold mb-2">Email and Wordlist Generator</h1>
+      <p className="text-text-muted mb-6">All client-side. Generate plausible email, username, and password variations for pentest/OSINT/self-testing.</p>
 
       <div className="grid md:grid-cols-3 gap-6">
         <div className="md:col-span-1 space-y-4">
           <div>
-            <label htmlFor="firstName" className="block text-sm mb-1">Primeiro nome</label>
+            <label htmlFor="firstName" className="block text-sm mb-1">First name</label>
             <input id="firstName" type="text" maxLength={64} className="w-full px-3 py-2 bg-dark border border-primary/20 rounded" onChange={e => update('firstName', e.target.value)} />
           </div>
           <div>
-            <label htmlFor="nickname" className="block text-sm mb-1">Apelido</label>
+            <label htmlFor="nickname" className="block text-sm mb-1">Nickname</label>
             <input id="nickname" type="text" maxLength={64} className="w-full px-3 py-2 bg-dark border border-primary/20 rounded" onChange={e => update('nickname', e.target.value)} />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="middleInitial" className="block text-sm mb-1">Inicial do meio</label>
+              <label htmlFor="middleInitial" className="block text-sm mb-1">Middle initial</label>
               <input id="middleInitial" type="text" className="w-full px-3 py-2 bg-dark border border-primary/20 rounded" maxLength={1} onChange={e => update('middleInitial', e.target.value)} />
             </div>
             <div>
-              <label htmlFor="lastName" className="block text-sm mb-1">Sobrenome</label>
+              <label htmlFor="lastName" className="block text-sm mb-1">Last name</label>
               <input id="lastName" type="text" maxLength={64} className="w-full px-3 py-2 bg-dark border border-primary/20 rounded" onChange={e => update('lastName', e.target.value)} />
             </div>
           </div>
           <div>
-            <label htmlFor="middleName" className="block text-sm mb-1">Nome do meio (completo)</label>
+            <label htmlFor="middleName" className="block text-sm mb-1">Middle name (full)</label>
             <input id="middleName" type="text" maxLength={64} className="w-full px-3 py-2 bg-dark border border-primary/20 rounded" onChange={e => update('middleName', e.target.value)} />
           </div>
           <div>
-            <label htmlFor="maidenName" className="block text-sm mb-1">Nome de solteira da mãe</label>
+            <label htmlFor="maidenName" className="block text-sm mb-1">Mother’s maiden name</label>
             <input id="maidenName" type="text" maxLength={64} className="w-full px-3 py-2 bg-dark border border-primary/20 rounded" onChange={e => update('maidenName', e.target.value)} />
           </div>
           <div>
-            <label htmlFor="fatherName" className="block text-sm mb-1">Nome do pai</label>
+            <label htmlFor="fatherName" className="block text-sm mb-1">Father’s name</label>
             <input id="fatherName" type="text" maxLength={64} className="w-full px-3 py-2 bg-dark border border-primary/20 rounded" onChange={e => update('fatherName', e.target.value)} />
           </div>
           <div>
-            <label htmlFor="usernames" className="block text-sm mb-1">Usernames conhecidos (separe por vírgulas)</label>
+            <label htmlFor="usernames" className="block text-sm mb-1">Known usernames (comma-separated)</label>
             <textarea id="usernames" className="w-full px-3 py-2 bg-dark border border-primary/20 rounded" rows={2} maxLength={512} value={usernamesText} onChange={e => setUsernamesText(e.target.value)} />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="birthDate" className="block text-sm mb-1">Data de nascimento</label>
+              <label htmlFor="birthDate" className="block text-sm mb-1">Birth date</label>
               <input
                 id="birthDate"
                 type="text"
@@ -132,24 +132,24 @@ const EmailWordlistGenerator = () => {
               />
             </div>
             <div>
-              <label htmlFor="extraYearOrNumber" className="block text-sm mb-1">Ano/Número extra</label>
+              <label htmlFor="extraYearOrNumber" className="block text-sm mb-1">Extra year/number</label>
               <input id="extraYearOrNumber" type="text" inputMode="numeric" pattern="\\d{1,6}" maxLength={6} className="w-full px-3 py-2 bg-dark border border-primary/20 rounded" onChange={e => update('extraYearOrNumber', e.target.value)} />
             </div>
           </div>
           <div>
-            <label htmlFor="petNames" className="block text-sm mb-1">Nomes dos pets (separe por vírgulas)</label>
+            <label htmlFor="petNames" className="block text-sm mb-1">Pet names (comma-separated)</label>
             <textarea id="petNames" className="w-full px-3 py-2 bg-dark border border-primary/20 rounded" rows={2} maxLength={512} value={petsText} onChange={e => setPetsText(e.target.value)} />
           </div>
           <div>
-            <label htmlFor="childrenNames" className="block text-sm mb-1">Nomes dos filhos (separe por vírgulas)</label>
+            <label htmlFor="childrenNames" className="block text-sm mb-1">Children’s names (comma-separated)</label>
             <textarea id="childrenNames" className="w-full px-3 py-2 bg-dark border border-primary/20 rounded" rows={2} maxLength={512} value={childrenText} onChange={e => setChildrenText(e.target.value)} />
           </div>
           <div>
-            <label htmlFor="favoriteTeam" className="block text-sm mb-1">Time do coração</label>
+            <label htmlFor="favoriteTeam" className="block text-sm mb-1">Favorite team</label>
             <input id="favoriteTeam" type="text" maxLength={64} className="w-full px-3 py-2 bg-dark border border-primary/20 rounded" value={favoriteTeam} onChange={e => setFavoriteTeam(e.target.value)} />
           </div>
           <div>
-            <p className="text-sm mb-1">Provedores</p>
+            <p className="text-sm mb-1">Providers</p>
             <div className="flex flex-wrap gap-3 text-sm">
               {defaultProviders.map(p => (
                 <label key={p} className="inline-flex items-center gap-2">
@@ -160,12 +160,12 @@ const EmailWordlistGenerator = () => {
             </div>
           </div>
           <div>
-            <label htmlFor="customDomains" className="block text-sm mb-1">Domínios personalizados (separe por vírgulas ou espaço)</label>
+            <label htmlFor="customDomains" className="block text-sm mb-1">Custom domains (comma or space separated)</label>
             <input
               id="customDomains"
               type="text"
               className="w-full px-3 py-2 bg-dark border border-primary/20 rounded"
-              placeholder="empresa.com, corp.com.br"
+              placeholder="company.com, corp.com.br"
               maxLength={256}
               value={customDomainsText}
               onChange={e => setCustomDomainsText(e.target.value)}
@@ -173,38 +173,38 @@ const EmailWordlistGenerator = () => {
           </div>
           <div className="flex gap-3 mt-2">
             <button className="px-3 py-2 bg-primary/20 hover:bg-primary/30 rounded" onClick={handleGenerate}>
-              Gerar
+              Generate
             </button>
             <button
               className="px-3 py-2 bg-primary/20 hover:bg-primary/30 rounded disabled:opacity-50"
               onClick={() => result && download('emails.txt', result.emails.join('\n'))}
               disabled={!result || result.emails.length === 0}
             >
-              Baixar emails.txt
+              Download emails.txt
             </button>
             <button
               className="px-3 py-2 bg-primary/20 hover:bg-primary/30 rounded disabled:opacity-50"
               onClick={() => result && download('wordlist.txt', result.passwords.join('\n'))}
               disabled={!result || result.passwords.length === 0}
             >
-              Baixar wordlist.txt
+              Download wordlist.txt
             </button>
             <button
               className="px-3 py-2 bg-primary/20 hover:bg-primary/30 rounded disabled:opacity-50"
               onClick={() => result && download('usernames.txt', result.usernames.join('\n'))}
               disabled={!result || result.usernames.length === 0}
             >
-              Baixar usernames.txt
+              Download usernames.txt
             </button>
           </div>
-          <p className="text-xs text-text-muted">Limites de segurança: {limits.MAX_EMAILS} e-mails, {limits.MAX_PASSWORDS} senhas por sessão. Prévia mostra {limits.PREVIEW_LIMIT} itens.</p>
+          <p className="text-xs text-text-muted">Safety limits: {limits.MAX_EMAILS} emails and {limits.MAX_PASSWORDS} passwords per session. Preview shows {limits.PREVIEW_LIMIT} items.</p>
         </div>
 
         <div className="md:col-span-2">
           {result && (
             <div className="grid md:grid-cols-3 gap-6">
               <div>
-                <h2 className="font-semibold mb-2">E-mails (prévia)</h2>
+                <h2 className="font-semibold mb-2">Emails (preview)</h2>
                 <div className="h-64 overflow-auto p-3 border border-primary/20 rounded text-sm">
                   <ul>
                     {preview(result.emails).map(e => (
@@ -214,7 +214,7 @@ const EmailWordlistGenerator = () => {
                 </div>
               </div>
               <div>
-                <h2 className="font-semibold mb-2">Senhas (prévia)</h2>
+                <h2 className="font-semibold mb-2">Passwords (preview)</h2>
                 <div className="h-64 overflow-auto p-3 border border-primary/20 rounded text-sm">
                   <ul>
                     {preview(result.passwords).map(e => (
@@ -224,7 +224,7 @@ const EmailWordlistGenerator = () => {
                 </div>
               </div>
               <div>
-                <h2 className="font-semibold mb-2">Usernames (prévia)</h2>
+                <h2 className="font-semibold mb-2">Usernames (preview)</h2>
                 <div className="h-64 overflow-auto p-3 border border-primary/20 rounded text-sm">
                   <ul>
                     {preview(result.usernames).map(e => (
@@ -243,4 +243,3 @@ const EmailWordlistGenerator = () => {
 }
 
 export default EmailWordlistGenerator
-

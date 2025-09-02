@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'SafeSpray',
   tagline:
-    'Geração controlada de e-mails, usernames e wordlists para estudos, conscientização e testes autorizados.',
+    'Controlled generation of emails, usernames, and wordlists for learning, awareness, and authorized testing.',
   socials: {
     linkedin: 'https://www.linkedin.com/in/bobreis/',
     twitter: 'https://x.com/xbobreis',
