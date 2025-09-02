@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light global defaults for the app */
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply bg-dark text-white antialiased;
+}
+
+a {
+  @apply text-primary hover:underline;
+}
+
+/* Container defaults */
+.container {
+  @apply max-w-6xl;
+}
+
