@@ -7,6 +7,7 @@ export const SITE = {
     twitter: 'https://x.com/xbobreis',
     github: 'https://github.com/bob-reis',
   },
+  repo: 'https://github.com/bob-reis/SafeSpray',
 }
 
 export type SiteConfig = typeof SITE
