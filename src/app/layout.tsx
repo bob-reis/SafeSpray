@@ -8,7 +8,7 @@ export const metadata = {
   description: SITE.tagline,
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
       <body>
