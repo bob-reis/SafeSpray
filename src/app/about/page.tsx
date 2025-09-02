@@ -102,48 +102,46 @@ export default function About() {
       <div className="bg-slate-800 p-6 rounded-lg border border-slate-700 not-prose">
         <h3 className="text-cyan-400 font-semibold mb-3 text-xl">Bob - Cybersecurity Specialist</h3>
         <p className="text-cyan-300 italic mb-4 text-lg">
-          &ldquo;Prefiro logs ao invés de PowerPoint bonito.&rdquo;
+          &ldquo;I prefer logs over pretty PowerPoints.&rdquo;
         </p>
         <p className="text-gray-300 mb-4">
-          Sou especialista em Cibersegurança que nos últimos anos liderei times, montei infra em nuvem, 
-          protegi dados sensíveis, analisei malwares, implantei soluções XDR, automatizei até café 
-          (mentira... ainda), e investi pesado em algo que a maioria ignora: <strong className="text-white">segurança de verdade, 
-          desde a primeira linha de código</strong>.
+          I&rsquo;m a cybersecurity specialist who over the past years has led teams, built cloud infrastructure,
+          protected sensitive data, analyzed malware, deployed XDR solutions, and automated just about everything
+          (coffee... not yet). I invest heavily in what most ignore: <strong className="text-white">real security from the first line of code</strong>.
         </p>
         <div className="grid md:grid-cols-2 gap-4 mb-6">
           <div className="bg-slate-900 p-4 rounded border border-green-500/30">
-            <h4 className="text-green-400 font-semibold mb-3">🏗️ Especialidades Técnicas</h4>
+            <h4 className="text-green-400 font-semibold mb-3">🏗️ Technical Focus</h4>
             <ul className="text-gray-300 space-y-2 text-sm">
-              <li>• <strong>Arquiteto de DevSecOps</strong></li>
-              <li>• <strong>Criador de soluções AppSec</strong></li>
-              <li>• <strong>Investigador OSINT</strong></li>
-              <li>• <strong>Red/Blue Team na veia</strong></li>
+              <li>• <strong>DevSecOps Architect</strong></li>
+              <li>• <strong>AppSec Solutions Builder</strong></li>
+              <li>• <strong>OSINT Investigator</strong></li>
+              <li>• <strong>Red/Blue Teamer at heart</strong></li>
             </ul>
           </div>
           <div className="bg-slate-900 p-4 rounded border border-purple-500/30">
-            <h4 className="text-purple-400 font-semibold mb-3">⚡ Experiência Prática</h4>
+            <h4 className="text-purple-400 font-semibold mb-3">⚡ Hands-on Experience</h4>
             <ul className="text-gray-300 space-y-2 text-sm">
-              <li>• <strong>Análise de malware</strong></li>
-              <li>• <strong>Implementação XDR</strong></li>
-              <li>• <strong>Automação de pipelines</strong></li>
-              <li>• <strong>Resposta a incidentes</strong></li>
+              <li>• <strong>Malware analysis</strong></li>
+              <li>• <strong>XDR deployment</strong></li>
+              <li>• <strong>Pipeline automation</strong></li>
+              <li>• <strong>Incident response</strong></li>
             </ul>
           </div>
         </div>
         <p className="text-gray-300 mb-4">
-          Atuo como arquiteto de DevSecOps, criador de soluções AppSec, investigador OSINT e red/blue teamer na veia. 
-          Curto desenvolver ferramentas próprias, hackear meu próprio código, usar IA pra acelerar investigações 
-          e transformar caos em <strong className="text-cyan-300">pipelines automatizadas que funcionam mesmo sob ataque</strong>.
+          I work as a DevSecOps architect, AppSec solutions builder, OSINT investigator, and an all-around red/blue teamer.
+          I like building my own tools, hacking my own code, using AI to accelerate investigations, and turning chaos into
+          <strong className="text-cyan-300"> automated pipelines that keep working even under attack</strong>.
         </p>
         <p className="text-gray-300 mb-6">
-          Já desvendei golpes, ajudei empresas em situações críticas e montei infra de cibersegurança com foco 
-          real em prevenção, resposta e visibilidade. Tudo com <strong className="text-green-300">ética, metodologia e, claro, uma pitada 
-          de rebeldia calculada</strong>.
+          I&rsquo;ve uncovered fraud, helped companies through critical incidents, and built cybersecurity infrastructure focused on
+          prevention, response, and visibility — always with <strong className="text-green-300">ethics, methodology, and a touch of calculated rebellion</strong>.
         </p>
         <div className="bg-slate-900 p-4 rounded border border-cyan-500/30 mb-6">
           <p className="text-cyan-300 font-medium">
-            <strong>💡 Filosofia:</strong> Se você procura alguém que entende o submundo, conhece as ferramentas, 
-            pensa como atacante e protege como arquiteto, a gente precisa conversar.
+            <strong>💡 Philosophy:</strong> If you&rsquo;re looking for someone who understands the underground, knows the tools,
+            thinks like an attacker and defends like an architect, we should talk.
           </p>
         </div>
         <div className="flex flex-wrap gap-4">
@@ -265,7 +263,7 @@ export default function About() {
         <p className="text-xl italic text-blue-400">
           &ldquo;The best defense is understanding the offense. SafeSpray makes that understanding accessible to everyone committed to improving cybersecurity.&rdquo;
         </p>
-        <p className="text-gray-400 mt-4">Happy Ethical Hacking! 🛡️</p>
+        <p className="text-gray-400 mt-4">Keep Learning to Keep Hacking. Happy Ethical Hacking!</p>
       </div>
     </main>
   )

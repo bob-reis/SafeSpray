@@ -261,10 +261,19 @@ const EmailWordlistGenerator = () => {
                 </div>
               </div>
             </div>
-            {/* Name Intelligence Section */}
-            <div className="bg-dark/30 border border-blue-500/20 rounded-lg p-4 space-y-4">
+            {/* Unified Generator Form */}
+            <div className="bg-dark/30 border border-primary/20 rounded-lg p-5 divide-y divide-primary/10">
+              {/* Header */}
+              <div className="pb-4">
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="font-semibold">Generator Form</h3>
+                </div>
+                <p className="text-xs text-text-muted">Preencha os campos relevantes abaixo. Os dados ficam apenas no seu navegador.</p>
+              </div>
+
+              {/* Name Intelligence Section */}
+              <div className="pt-4 space-y-4">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-blue-400">👤</span>
                 <h3 className="font-semibold text-blue-400">Personal Identity Matrix</h3>
                 <div className="ml-auto text-xs bg-blue-500/20 px-2 py-1 rounded text-blue-400">HIGH PRIORITY</div>
               </div>
@@ -274,7 +283,6 @@ const EmailWordlistGenerator = () => {
                   <label htmlFor="firstName" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
                     First name 
-                    <span className="text-blue-400 text-xs group-hover:animate-pulse">💡 OSINT TIP</span>
                   </label>
                 </OSINTTooltip>
                 <input 
@@ -282,7 +290,7 @@ const EmailWordlistGenerator = () => {
                   type="text" 
                   maxLength={64} 
                   className="w-full px-4 py-3 bg-dark border border-blue-500/30 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all placeholder-text-muted/50" 
-                  placeholder="🔍 e.g., John, María, 李明, Alexandre"
+                  placeholder="e.g., John, María, 李明, Alexandre"
                   onChange={e => update('firstName', e.target.value)} 
                 />
                 <div className="text-xs text-text-muted mt-1 ml-1">
@@ -294,7 +302,6 @@ const EmailWordlistGenerator = () => {
                   <label htmlFor="nickname" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-green-400 rounded-full"></span>
                     Nickname/Handle 
-                    <span className="text-green-400 text-xs group-hover:animate-pulse">🎮 SOCIAL TIP</span>
                   </label>
                 </OSINTTooltip>
                 <input 
@@ -302,7 +309,7 @@ const EmailWordlistGenerator = () => {
                   type="text" 
                   maxLength={64} 
                   className="w-full px-4 py-3 bg-dark border border-green-500/30 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-500/30 transition-all placeholder-text-muted/50" 
-                  placeholder="🎯 e.g., johnny2k, xJohnx, j0hn_d03"
+                  placeholder="e.g., johnny2k, xJohnx, j0hn_d03"
                   onChange={e => update('nickname', e.target.value)} 
                 />
                 <div className="text-xs text-text-muted mt-1 ml-1">
@@ -316,7 +323,6 @@ const EmailWordlistGenerator = () => {
                     <label htmlFor="middleInitial" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
                       Middle initial 
-                      <span className="text-purple-400 text-xs group-hover:animate-pulse">📧 EMAIL</span>
                     </label>
                   </OSINTTooltip>
                   <input 
@@ -333,7 +339,6 @@ const EmailWordlistGenerator = () => {
                     <label htmlFor="lastName" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-yellow-400 rounded-full"></span>
                       Last name 
-                      <span className="text-yellow-400 text-xs group-hover:animate-pulse">🏢 CORP</span>
                     </label>
                   </OSINTTooltip>
                   <input 
@@ -341,16 +346,16 @@ const EmailWordlistGenerator = () => {
                     type="text" 
                     maxLength={64} 
                     className="w-full px-4 py-3 bg-dark border border-yellow-500/30 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/30 transition-all placeholder-text-muted/50" 
-                    placeholder="🎯 e.g., Smith, O'Connor, García"
-                    onChange={e => update('lastName', e.target.value)} 
-                  />
+                  placeholder="e.g., Smith, O'Connor, García"
+                  onChange={e => update('lastName', e.target.value)} 
+                />
                 </div>
               </div>
-            </div>
-            {/* Family & Personal Intelligence Section */}
-            <div className="bg-dark/30 border border-red-500/20 rounded-lg p-4 space-y-4">
+              </div>
+
+              {/* Family & Personal Intelligence Section */}
+              <div className="pt-4 space-y-4">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-red-400">👨‍👩‍👧‍👦</span>
                 <h3 className="font-semibold text-red-400">Family Intelligence Network</h3>
                 <div className="ml-auto text-xs bg-red-500/20 px-2 py-1 rounded text-red-400">PERSONAL INTEL</div>
               </div>
@@ -360,7 +365,6 @@ const EmailWordlistGenerator = () => {
                   <label htmlFor="middleName" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-cyan-400 rounded-full"></span>
                     Middle name (full) 
-                    <span className="text-cyan-400 text-xs group-hover:animate-pulse">🔐 SECURITY</span>
                   </label>
                 </OSINTTooltip>
                 <input 
@@ -368,7 +372,7 @@ const EmailWordlistGenerator = () => {
                   type="text" 
                   maxLength={64} 
                   className="w-full px-4 py-3 bg-dark border border-cyan-500/30 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all placeholder-text-muted/50" 
-                  placeholder="🎯 e.g., Alexander, Elizabeth, José"
+                  placeholder="e.g., Alexander, Elizabeth, José"
                   onChange={e => update('middleName', e.target.value)} 
                 />
                 <div className="text-xs text-text-muted mt-1 ml-1">
@@ -382,7 +386,6 @@ const EmailWordlistGenerator = () => {
                     <label htmlFor="maidenName" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-pink-400 rounded-full"></span>
                       Mother&rsquo;s maiden name 
-                      <span className="text-pink-400 text-xs group-hover:animate-pulse">💎 GOLD</span>
                     </label>
                   </OSINTTooltip>
                   <input 
@@ -390,9 +393,9 @@ const EmailWordlistGenerator = () => {
                     type="text" 
                     maxLength={64} 
                     className="w-full px-4 py-3 bg-dark border border-pink-500/30 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-500/30 transition-all placeholder-text-muted/50" 
-                    placeholder="🔍 e.g., Johnson, López"
-                    onChange={e => update('maidenName', e.target.value)} 
-                  />
+                  placeholder="e.g., Johnson, López"
+                  onChange={e => update('maidenName', e.target.value)} 
+                />
                 </div>
                 
                 <div>
@@ -400,7 +403,6 @@ const EmailWordlistGenerator = () => {
                     <label htmlFor="fatherName" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
                       Father&rsquo;s name 
-                      <span className="text-orange-400 text-xs group-hover:animate-pulse">👨 FAMILY</span>
                     </label>
                   </OSINTTooltip>
                   <input 
@@ -408,9 +410,9 @@ const EmailWordlistGenerator = () => {
                     type="text" 
                     maxLength={64} 
                     className="w-full px-4 py-3 bg-dark border border-orange-500/30 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 transition-all placeholder-text-muted/50" 
-                    placeholder="🔍 e.g., Robert, Carlos"
-                    onChange={e => update('fatherName', e.target.value)} 
-                  />
+                  placeholder="e.g., Robert, Carlos"
+                  onChange={e => update('fatherName', e.target.value)} 
+                />
                 </div>
               </div>
               
@@ -419,7 +421,6 @@ const EmailWordlistGenerator = () => {
                   <label htmlFor="spouseName" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-rose-400 rounded-full"></span>
                     Spouse&rsquo;s name 
-                    <span className="text-rose-400 text-xs group-hover:animate-pulse">💕 ROMANTIC</span>
                   </label>
                 </OSINTTooltip>
                 <input 
@@ -427,7 +428,7 @@ const EmailWordlistGenerator = () => {
                   type="text" 
                   maxLength={64} 
                   className="w-full px-4 py-3 bg-dark border border-rose-500/30 rounded-lg focus:border-rose-500 focus:ring-2 focus:ring-rose-500/30 transition-all placeholder-text-muted/50" 
-                  placeholder="💕 e.g., Sarah, Michael, Alexandra"
+                  placeholder="e.g., Sarah, Michael, Alexandra"
                   value={form.spouseName || ''} 
                   onChange={e => update('spouseName', e.target.value)} 
                 />
@@ -435,11 +436,11 @@ const EmailWordlistGenerator = () => {
                   Sources: Wedding announcements, couple photos, joint accounts
                 </div>
               </div>
-            </div>
-            {/* Digital Intelligence Section */}
-            <div className="bg-dark/30 border border-green-500/20 rounded-lg p-4 space-y-4">
+              </div>
+
+              {/* Digital Intelligence Section */}
+              <div className="pt-4 space-y-4">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-green-400">💻</span>
                 <h3 className="font-semibold text-green-400">Digital Identity Footprint</h3>
                 <div className="ml-auto text-xs bg-green-500/20 px-2 py-1 rounded text-green-400">DIGITAL INTEL</div>
               </div>
@@ -449,7 +450,6 @@ const EmailWordlistGenerator = () => {
                   <label htmlFor="usernames" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-green-400 rounded-full"></span>
                     Known usernames/handles
-                    <span className="text-green-400 text-xs group-hover:animate-pulse">🏆 PATTERNS</span>
                   </label>
                 </OSINTTooltip>
                 <textarea 
@@ -457,7 +457,7 @@ const EmailWordlistGenerator = () => {
                   className="w-full px-4 py-3 bg-dark border border-green-500/30 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-500/30 transition-all placeholder-text-muted/50 font-mono" 
                   rows={3} 
                   maxLength={512} 
-                  placeholder="🔍 john.doe, jdoe2023, johnnyboy, j_doe_dev, JohnD_85"
+                  placeholder="john.doe, jdoe2023, johnnyboy, j_doe_dev, JohnD_85"
                   value={usernamesText} 
                   onChange={e => setUsernamesText(e.target.value)} 
                 />
@@ -465,12 +465,11 @@ const EmailWordlistGenerator = () => {
                   Sources: GitHub, forums, gaming platforms, social media handles
                 </div>
               </div>
-            </div>
+              </div>
 
-            {/* Temporal Intelligence Section */}
-            <div className="bg-dark/30 border border-yellow-500/20 rounded-lg p-4 space-y-4">
+              {/* Temporal Intelligence Section */}
+              <div className="pt-4 space-y-4">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-yellow-400">⏰</span>
                 <h3 className="font-semibold text-yellow-400">Temporal Intelligence Matrix</h3>
                 <div className="ml-auto text-xs bg-yellow-500/20 px-2 py-1 rounded text-yellow-400">TIME INTEL</div>
               </div>
@@ -481,13 +480,12 @@ const EmailWordlistGenerator = () => {
                     <label htmlFor="birthDate" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
                       Birth date
-                      <span className="text-yellow-400 text-xs group-hover:animate-pulse">🎰 JACKPOT</span>
                     </label>
                   </OSINTTooltip>
                   <input
                     id="birthDate"
                     type="text"
-                    placeholder="🎂 01/01/1990"
+                    placeholder="01/01/1990"
                     value={dob}
                     onChange={e => setDob(applyDobMask(e.target.value))}
                     inputMode="numeric"
@@ -504,7 +502,6 @@ const EmailWordlistGenerator = () => {
                     <label htmlFor="extraYearOrNumber" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></span>
                       Significant number
-                      <span className="text-amber-400 text-xs group-hover:animate-pulse">🔢 MEMORY</span>
                     </label>
                   </OSINTTooltip>
                   <input 
@@ -513,7 +510,7 @@ const EmailWordlistGenerator = () => {
                     inputMode="numeric" 
                     pattern="\\d{1,6}" 
                     maxLength={6} 
-                    placeholder="🎯 2018, 123, 777"
+                    placeholder="2018, 123, 777"
                     className="w-full px-4 py-3 bg-dark border border-amber-500/30 rounded-lg focus:border-amber-500 focus:ring-2 focus:ring-amber-500/30 transition-all font-mono text-center text-lg" 
                     onChange={e => update('extraYearOrNumber', e.target.value)} 
                   />
@@ -522,11 +519,11 @@ const EmailWordlistGenerator = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            {/* Personal Interests Intelligence Section */}
-            <div className="bg-dark/30 border border-purple-500/20 rounded-lg p-4 space-y-4">
+              </div>
+
+              {/* Personal Interests Intelligence Section */}
+              <div className="pt-4 space-y-4">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-purple-400">💝</span>
                 <h3 className="font-semibold text-purple-400">Personal Interests & Attachments</h3>
                 <div className="ml-auto text-xs bg-purple-500/20 px-2 py-1 rounded text-purple-400">EMOTIONAL INTEL</div>
               </div>
@@ -537,7 +534,6 @@ const EmailWordlistGenerator = () => {
                     <label htmlFor="petNames" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></span>
                       Pet names
-                      <span className="text-purple-400 text-xs group-hover:animate-pulse">🐾 LOVE</span>
                     </label>
                   </OSINTTooltip>
                   <textarea 
@@ -545,10 +541,10 @@ const EmailWordlistGenerator = () => {
                     className="w-full px-4 py-3 bg-dark border border-purple-500/30 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 transition-all placeholder-text-muted/50" 
                     rows={2} 
                     maxLength={512} 
-                    placeholder="🐕 Max, Bella, Fluffy, Rex, Luna"
-                    value={petsText} 
-                    onChange={e => setPetsText(e.target.value)} 
-                  />
+                  placeholder="Max, Bella, Fluffy, Rex, Luna"
+                  value={petsText} 
+                  onChange={e => setPetsText(e.target.value)} 
+                />
                   <div className="text-xs text-text-muted mt-1 ml-1">
                     Sources: Social media photos, vet records, pet tags
                   </div>
@@ -559,7 +555,6 @@ const EmailWordlistGenerator = () => {
                     <label htmlFor="childrenNames" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                       <span className="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></span>
                       Children&rsquo;s names
-                      <span className="text-pink-400 text-xs group-hover:animate-pulse">👶 ULTIMATE</span>
                     </label>
                   </OSINTTooltip>
                   <textarea 
@@ -567,10 +562,10 @@ const EmailWordlistGenerator = () => {
                     className="w-full px-4 py-3 bg-dark border border-pink-500/30 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-500/30 transition-all placeholder-text-muted/50" 
                     rows={2} 
                     maxLength={512} 
-                    placeholder="👶 Emma, Liam, Sofia, Noah, Mia"
-                    value={childrenText} 
-                    onChange={e => setChildrenText(e.target.value)} 
-                  />
+                  placeholder="Emma, Liam, Sofia, Noah, Mia"
+                  value={childrenText} 
+                  onChange={e => setChildrenText(e.target.value)} 
+                />
                   <div className="text-xs text-text-muted mt-1 ml-1">
                     Sources: Family photos, school events, sports teams
                   </div>
@@ -582,7 +577,6 @@ const EmailWordlistGenerator = () => {
                   <label htmlFor="favoriteTeam" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></span>
                     Favorite team/brand/interest
-                    <span className="text-indigo-400 text-xs group-hover:animate-pulse">⚽ LOYALTY</span>
                   </label>
                 </OSINTTooltip>
                 <input 
@@ -590,7 +584,7 @@ const EmailWordlistGenerator = () => {
                   type="text" 
                   maxLength={64} 
                   className="w-full px-4 py-3 bg-dark border border-indigo-500/30 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 transition-all placeholder-text-muted/50" 
-                  placeholder="⚽ Lakers, Yankees, Ferrari, Apple, BTS, Marvel"
+                  placeholder="Lakers, Yankees, Ferrari, Apple, BTS, Marvel"
                   value={favoriteTeam} 
                   onChange={e => setFavoriteTeam(e.target.value)} 
                 />
@@ -598,12 +592,11 @@ const EmailWordlistGenerator = () => {
                   Sources: Social media likes, photos, check-ins, reviews
                 </div>
               </div>
-            </div>
+              </div>
 
-            {/* Email Intelligence Targeting Section */}
-            <div className="bg-dark/30 border border-cyan-500/20 rounded-lg p-4 space-y-4">
+              {/* Email Intelligence Targeting Section */}
+              <div className="pt-4 space-y-4">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-cyan-400">📧</span>
                 <h3 className="font-semibold text-cyan-400">Email Intelligence Targeting</h3>
                 <div className="ml-auto text-xs bg-cyan-500/20 px-2 py-1 rounded text-cyan-400">TARGET SYSTEMS</div>
               </div>
@@ -613,19 +606,18 @@ const EmailWordlistGenerator = () => {
                   <p className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-cyan-400 rounded-full"></span>
                     Email providers
-                    <span className="text-cyan-400 text-xs group-hover:animate-pulse">📧 PATTERNS</span>
                   </p>
                 </OSINTTooltip>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-3 gap-2">
                   {defaultProviders.map(p => (
-                    <label key={p} className="flex items-center gap-2 cursor-pointer p-3 border border-cyan-500/30 rounded-lg hover:bg-cyan-500/10 transition-all group">
+                    <label key={p} className="flex items-center gap-2 cursor-pointer p-1">
                       <input 
                         type="checkbox" 
                         checked={form.providers?.includes(p)} 
                         onChange={() => toggleProvider(p)}
                         className="accent-cyan-400"
                       />
-                      <span className="group-hover:text-cyan-400 transition-colors">{p}</span>
+                      <span>{p}</span>
                     </label>
                   ))}
                 </div>
@@ -635,18 +627,17 @@ const EmailWordlistGenerator = () => {
               </div>
               
               <div>
-                <OSINTTooltip tip="Corporate domains = HIGH-VALUE targets! 🏢 Company email patterns unlock entire organizations. Found in: email signatures, LinkedIn, job postings, press releases. Reveals firstname.lastname@company.com patterns.">
+                <OSINTTooltip tip="Corporate domains are high-value targets. Company email patterns unlock entire organizations. Found in: email signatures, LinkedIn, job postings, press releases. Reveals firstname.lastname@company.com patterns.">
                   <label htmlFor="customDomains" className="flex items-center gap-2 text-sm mb-2 cursor-help group">
                     <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
-                    Corporate domains
-                    <span className="text-orange-400 text-xs group-hover:animate-pulse">🏢 HIGH-VALUE</span>
+                    Custom domains
                   </label>
                 </OSINTTooltip>
                 <input
                   id="customDomains"
                   type="text"
                   className="w-full px-4 py-3 bg-dark border border-orange-500/30 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 transition-all placeholder-text-muted/50 font-mono"
-                  placeholder="🏢 company.com, subsidiary.corp, division.gov"
+                  placeholder="company.com, subsidiary.corp, division.gov"
                   maxLength={256}
                   value={customDomainsText}
                   onChange={e => setCustomDomainsText(e.target.value)}
@@ -655,147 +646,45 @@ const EmailWordlistGenerator = () => {
                   Sources: Email signatures, LinkedIn, job postings, company websites
                 </div>
               </div>
-            </div>
-            {/* Enhanced Execution Command Center */}
-            <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 border border-red-500/30 rounded-lg p-5 mt-6 shadow-lg">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center">
-                    <span className="text-red-400 text-xl">⚡</span>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-red-400">INTELLIGENCE GENERATION COMMAND CENTER</h3>
-                    <div className="text-xs text-orange-400 font-mono">[AUTHORIZED OPERATION READY]</div>
-                  </div>
-                </div>
-                <div className="text-xs bg-green-500/20 border border-green-500/30 px-3 py-1 rounded font-mono text-green-400">
-                  STATUS: READY
-                </div>
-              </div>
-              
-              {/* Mission Brief */}
-              <div className="bg-dark/50 border border-orange-500/20 rounded-lg p-3 mb-4">
-                <div className="text-xs space-y-1">
-                  <div className="flex items-center gap-2">
-                    <span className="w-1 h-1 bg-orange-400 rounded-full"></span>
-                    <span className="text-orange-400">Mission:</span>
-                    <span className="text-text-muted">Transform OSINT intelligence into targeted attack vectors</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-1 h-1 bg-blue-400 rounded-full"></span>
-                    <span className="text-blue-400">Output:</span>
-                    <span className="text-text-muted">Email enumeration, password wordlists, username variations</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-1 h-1 bg-green-400 rounded-full"></span>
-                    <span className="text-green-400">Authorization:</span>
-                    <span className="text-text-muted">Educational use & authorized penetration testing only</span>
-                  </div>
-                </div>
               </div>
 
-              <div className="space-y-4">
-                {/* Main Execute Button */}
-                <button 
-                  className="w-full px-6 py-4 bg-gradient-to-r from-red-500/20 via-orange-500/20 to-yellow-500/20 hover:from-red-500/30 hover:via-orange-500/30 hover:to-yellow-500/30 border-2 border-red-500/40 hover:border-red-500/60 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.02] hover:shadow-lg flex items-center justify-center gap-3 group" 
+              {/* Actions */}
+              <div className="pt-5">
+                <button
+                  className="w-full px-5 py-3 rounded-md bg-primary/90 hover:bg-primary text-white font-medium transition-colors"
                   onClick={handleGenerate}
                 >
-                  <span className="text-2xl group-hover:animate-pulse">🚀</span> 
-                  <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
-                    EXECUTE INTELLIGENCE GENERATION
-                  </span>
-                  <div className="text-xs bg-red-500/20 px-2 py-1 rounded font-mono">
-                    CTRL+G
-                  </div>
+                  Generate
                 </button>
-                
-                {/* Download Arsenal */}
-                <div className="space-y-2">
-                  <div className="text-xs font-semibold text-primary mb-2 flex items-center gap-2">
-                    <span>💾</span> DOWNLOAD INTELLIGENCE ARSENAL
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <button
-                      className="px-4 py-3 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-500/30 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 group"
-                      onClick={() => result && download('emails.txt', result.emails.join('\n'))}
-                      disabled={!result || result.emails.length === 0}
-                    >
-                      <span className="text-blue-400 group-hover:animate-pulse">📧</span>
-                      <div className="text-left">
-                        <div className="text-sm font-semibold text-blue-400">Email Vectors</div>
-                        <div className="text-xs text-blue-300">Target enumeration</div>
-                      </div>
-                    </button>
-                    <button
-                      className="px-4 py-3 bg-red-500/20 hover:bg-red-500/30 border border-red-500/30 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 group"
-                      onClick={() => result && download('wordlist.txt', result.passwords.join('\n'))}
-                      disabled={!result || result.passwords.length === 0}
-                    >
-                      <span className="text-red-400 group-hover:animate-pulse">🔑</span>
-                      <div className="text-left">
-                        <div className="text-sm font-semibold text-red-400">Password Arsenal</div>
-                        <div className="text-xs text-red-300">Authentication bypass</div>
-                      </div>
-                    </button>
-                    <button
-                      className="px-4 py-3 bg-yellow-500/20 hover:bg-yellow-500/30 border border-yellow-500/30 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 group"
-                      onClick={() => result && download('usernames.txt', result.usernames.join('\n'))}
-                      disabled={!result || result.usernames.length === 0}
-                    >
-                      <span className="text-yellow-400 group-hover:animate-pulse">👤</span>
-                      <div className="text-left">
-                        <div className="text-sm font-semibold text-yellow-400">Identity Matrix</div>
-                        <div className="text-xs text-yellow-300">User enumeration</div>
-                      </div>
-                    </button>
-                  </div>
+
+                {/* Downloads */}
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <button
+                    className="px-4 py-3 bg-dark/60 hover:bg-dark border border-primary/20 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center"
+                    onClick={() => result && download('emails.txt', result.emails.join('\n'))}
+                    disabled={!result || result.emails.length === 0}
+                  >
+                    <span className="text-sm">Emails</span>
+                  </button>
+                  <button
+                    className="px-4 py-3 bg-dark/60 hover:bg-dark border border-primary/20 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center"
+                    onClick={() => result && download('wordlist.txt', result.passwords.join('\n'))}
+                    disabled={!result || result.passwords.length === 0}
+                  >
+                    <span className="text-sm">Passwords</span>
+                  </button>
+                  <button
+                    className="px-4 py-3 bg-dark/60 hover:bg-dark border border-primary/20 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center"
+                    onClick={() => result && download('usernames.txt', result.usernames.join('\n'))}
+                    disabled={!result || result.usernames.length === 0}
+                  >
+                    <span className="text-sm">Usernames</span>
+                  </button>
                 </div>
               </div>
             </div>
             
-            {/* Enhanced Safety Constraints Panel */}
-            <div className="bg-gradient-to-r from-yellow-500/5 via-orange-500/5 to-red-500/5 border border-yellow-500/30 rounded-lg p-4 mt-4">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-8 h-8 bg-yellow-500/20 rounded-full flex items-center justify-center">
-                  <span className="text-yellow-400">🛡️</span>
-                </div>
-                <div>
-                  <span className="text-sm font-bold text-yellow-400">OPERATIONAL SAFETY CONSTRAINTS</span>
-                  <div className="text-xs text-yellow-300">[BUILT-IN PROTECTION SYSTEMS]</div>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                <div className="bg-dark/30 border border-yellow-500/20 rounded-lg p-3">
-                  <div className="text-yellow-400 font-semibold mb-1">⚡ Generation Limits</div>
-                  <div className="text-text-muted">
-                    • Max {limits.MAX_EMAILS.toLocaleString()} emails per session
-                    <br />• Max {limits.MAX_PASSWORDS.toLocaleString()} passwords per session
-                    <br />• Client-side processing only
-                  </div>
-                </div>
-                <div className="bg-dark/30 border border-orange-500/20 rounded-lg p-3">
-                  <div className="text-orange-400 font-semibold mb-1">🔒 Privacy Protection</div>
-                  <div className="text-text-muted">
-                    • Zero data transmission
-                    <br />• No server-side logging
-                    <br />• Complete offline operation
-                  </div>
-                </div>
-                <div className="bg-dark/30 border border-red-500/20 rounded-lg p-3">
-                  <div className="text-red-400 font-semibold mb-1">⚖️ Ethical Boundaries</div>
-                  <div className="text-text-muted">
-                    • Authorization required
-                    <br />• Educational use only
-                    <br />• Professional pentesting scope
-                  </div>
-                </div>
-              </div>
-              
-              <div className="text-xs text-center text-text-muted mt-3 font-mono">
-                Preview limited to {limits.PREVIEW_LIMIT} items per category for optimal performance
-              </div>
-            </div>
+            {/* Safety panel moved below <EthicsNotice /> */}
           </div>
 
           <div className="md:col-span-2">
@@ -1021,6 +910,50 @@ const EmailWordlistGenerator = () => {
               </div>
             )}
             <EthicsNotice />
+
+            {/* Operational Safety Constraints moved below Ethical Notice */}
+            <div className="bg-gradient-to-r from-yellow-500/5 via-orange-500/5 to-red-500/5 border border-yellow-500/30 rounded-lg p-4 mt-4">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 bg-yellow-500/20 rounded-full flex items-center justify-center">
+                  <span className="text-yellow-400">🛡️</span>
+                </div>
+                <div>
+                  <span className="text-sm font-bold text-yellow-400">OPERATIONAL SAFETY CONSTRAINTS</span>
+                  <div className="text-xs text-yellow-300">[BUILT-IN PROTECTION SYSTEMS]</div>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                <div className="bg-dark/30 border border-yellow-500/20 rounded-lg p-3">
+                  <div className="text-yellow-400 font-semibold mb-1">⚡ Generation Limits</div>
+                  <div className="text-text-muted">
+                    • Max {limits.MAX_EMAILS.toLocaleString()} emails per session
+                    <br />• Max {limits.MAX_PASSWORDS.toLocaleString()} passwords per session
+                    <br />• Client-side processing only
+                  </div>
+                </div>
+                <div className="bg-dark/30 border border-orange-500/20 rounded-lg p-3">
+                  <div className="text-orange-400 font-semibold mb-1">🔒 Privacy Protection</div>
+                  <div className="text-text-muted">
+                    • Zero data transmission
+                    <br />• No server-side logging
+                    <br />• Complete offline operation
+                  </div>
+                </div>
+                <div className="bg-dark/30 border border-red-500/20 rounded-lg p-3">
+                  <div className="text-red-400 font-semibold mb-1">⚖️ Ethical Boundaries</div>
+                  <div className="text-text-muted">
+                    • Authorization required
+                    <br />• Educational use only
+                    <br />• Professional pentesting scope
+                  </div>
+                </div>
+              </div>
+              
+              <div className="text-xs text-center text-text-muted mt-3 font-mono">
+                Preview limited to {limits.PREVIEW_LIMIT} items per category for optimal performance
+              </div>
+            </div>
           </div>
         </div>
       )}
