@@ -6,14 +6,14 @@ import EthicsNotice from './EthicsNotice'
 
 const defaultProviders = ['gmail.com', 'hotmail.com', 'yahoo.com']
 
-// OSINT Tooltip Component (accessible)
+// OSINT Tooltip Component (accessible, real button trigger)
 const OSINTTooltip = ({ children, tip }: { children: React.ReactNode; tip: string }) => {
   const [show, setShow] = useState(false)
   const tooltipId = useId()
 
   const showTip = () => setShow(true)
   const hideTip = () => setShow(false)
-  const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (e) => {
+  const onKeyDown: React.KeyboardEventHandler<HTMLButtonElement> = (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault()
       setShow((s) => !s)
@@ -22,10 +22,10 @@ const OSINTTooltip = ({ children, tip }: { children: React.ReactNode; tip: strin
   }
 
   return (
-    <div className="relative inline-block">
-      <div
-        role="button"
-        tabIndex={0}
+    <div className="relative inline-flex items-center gap-2 align-middle">
+      <span className="inline-flex items-center">{children}</span>
+      <button
+        type="button"
         aria-haspopup="true"
         aria-expanded={show}
         aria-describedby={tooltipId}
@@ -36,10 +36,11 @@ const OSINTTooltip = ({ children, tip }: { children: React.ReactNode; tip: strin
         onTouchStart={showTip}
         onTouchEnd={hideTip}
         onKeyDown={onKeyDown}
-        className="cursor-help"
+        className="cursor-help inline-flex items-center justify-center w-5 h-5 text-xs rounded-full border border-primary/30 bg-dark/40 hover:bg-dark/60"
+        title="OSINT tip"
       >
-        {children}
-      </div>
+        i
+      </button>
       <div
         id={tooltipId}
         role="tooltip"
