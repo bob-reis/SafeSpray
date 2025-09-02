@@ -1,6 +1,7 @@
 # Ignore local agent docs and workspace agents folder
 AGENTS.md
-@agents/
+agents/
+CLAUDE.md
 
 # Node/Next.js
 node_modules/

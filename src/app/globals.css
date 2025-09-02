@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Light global defaults for the app */
+/* Cybersecurity theme for SafeSpray */
 :root {
   color-scheme: dark;
+  --scan-line-color: rgba(56, 189, 248, 0.3);
 }
 
 html, body {
@@ -13,6 +14,9 @@ html, body {
 
 body {
   @apply bg-dark text-white antialiased;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
 }
 
 a {
@@ -22,5 +26,143 @@ a {
 /* Container defaults */
 .container {
   @apply max-w-6xl;
+}
+
+/* Enhanced Cybersecurity Theme */
+.cyber-glow {
+  box-shadow: 
+    0 0 20px rgba(56, 189, 248, 0.3),
+    0 0 40px rgba(56, 189, 248, 0.1),
+    inset 0 0 20px rgba(56, 189, 248, 0.05);
+}
+
+.cyber-glow-red {
+  box-shadow: 
+    0 0 15px rgba(239, 68, 68, 0.3),
+    0 0 30px rgba(239, 68, 68, 0.1),
+    inset 0 0 15px rgba(239, 68, 68, 0.05);
+}
+
+.cyber-glow-green {
+  box-shadow: 
+    0 0 15px rgba(34, 197, 94, 0.3),
+    0 0 30px rgba(34, 197, 94, 0.1),
+    inset 0 0 15px rgba(34, 197, 94, 0.05);
+}
+
+.terminal-font {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+}
+
+/* Professional cybersecurity borders */
+.cyber-border {
+  position: relative;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.cyber-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6), transparent);
+  animation: border-sweep 3s linear infinite;
+}
+
+@keyframes border-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Enhanced text effects for cybersecurity theme */
+.cyber-text {
+  background: linear-gradient(45deg, #38bdf8, #22c55e, #eab308, #f59e0b);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Terminal-style typing effect */
+.typing-effect {
+  border-right: 2px solid rgba(56, 189, 248, 0.8);
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { border-color: rgba(56, 189, 248, 0.8); }
+  51%, 100% { border-color: transparent; }
+}
+
+/* Subtle scanning animation */
+@keyframes scan-line {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.scan-line::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--scan-line-color), transparent);
+  animation: scan-line 8s linear infinite;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Matrix-style text effect */
+@keyframes matrix-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.matrix-text {
+  animation: matrix-flicker 2s ease-in-out infinite;
+}
+
+/* Glitch effect for headers */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s linear;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 17, 21, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.3);
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.5);
 }
 
