@@ -8,7 +8,7 @@ const EthicsNotice = () => (
         </div>
         <div>
           <h3 className="font-bold text-xl text-white flex items-center gap-2">
-            CRITICAL: Ethical Use & Legal Responsibility
+            <span>CRITICAL: Ethical Use & Legal Responsibility</span>
             <span className="text-xs bg-red-500/20 border border-red-500/40 px-2 py-1 rounded font-mono">MANDATORY</span>
           </h3>
           <p className="text-sm text-red-300 font-semibold">⚖️ Unauthorized access is ILLEGAL and punishable by law</p>

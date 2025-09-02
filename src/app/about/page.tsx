@@ -14,7 +14,7 @@ export default function About() {
       </blockquote>
 
       <p className="text-lg">
-        {SITE.name} is not just another wordlist generator. It&rsquo;s a comprehensive <strong>cybersecurity education platform</strong> 
+        {SITE.name} is not just another wordlist generator. It&rsquo;s a comprehensive <strong>cybersecurity education platform</strong>{' '}
         that bridges the gap between theoretical security knowledge and practical penetration testing skills. 
         Built for ethical hackers, red teamers, security researchers, and blue team defenders who need to 
         understand attack vectors to build better defenses.
@@ -45,25 +45,25 @@ export default function About() {
       <h2>🔬 What Makes SafeSpray Unique</h2>
       <p>
         Unlike commercial wordlist generators that simply produce random combinations, SafeSpray is built on 
-        <strong>actual attacker methodology</strong> and <strong>behavioral psychology research</strong>. 
+        <strong>actual attacker methodology</strong>{' '}and{' '}<strong>behavioral psychology research</strong>. 
         It replicates how real-world adversaries conduct reconnaissance, build target profiles, and generate 
         credential attack lists.
       </p>
 
       <h3>Real-World Attack Simulation</h3>
       <ul>
-        <li><strong>OSINT-driven generation:</strong> Mimics actual reconnaissance techniques used by professional penetration testers</li>
-        <li><strong>Behavioral pattern analysis:</strong> Based on analysis of actual breached password datasets (RockYou, LinkedIn, Adobe, etc.)</li>
-        <li><strong>Corporate environment targeting:</strong> Generates domain-specific wordlists following real naming conventions</li>
-        <li><strong>Social engineering insights:</strong> Demonstrates how attackers exploit personal information</li>
+        <li><strong>OSINT-driven generation:</strong>{' '}Mimics actual reconnaissance techniques used by professional penetration testers</li>
+        <li><strong>Behavioral pattern analysis:</strong>{' '}Based on analysis of actual breached password datasets (RockYou, LinkedIn, Adobe, etc.)</li>
+        <li><strong>Corporate environment targeting:</strong>{' '}Generates domain-specific wordlists following real naming conventions</li>
+        <li><strong>Social engineering insights:</strong>{' '}Demonstrates how attackers exploit personal information</li>
       </ul>
 
       <h3>Privacy-First Architecture</h3>
       <ul>
-        <li><strong>Zero telemetry:</strong> No tracking, analytics, or data collection</li>
-        <li><strong>100% client-side processing:</strong> Data never leaves your browser</li>
-        <li><strong>Offline capable:</strong> Works completely disconnected from the internet</li>
-        <li><strong>Enterprise-friendly:</strong> Safe to use in air-gapped environments</li>
+        <li><strong>Zero telemetry:</strong>{' '}No tracking, analytics, or data collection</li>
+        <li><strong>100% client-side processing:</strong>{' '}Data never leaves your browser</li>
+        <li><strong>Offline capable:</strong>{' '}Works completely disconnected from the internet</li>
+        <li><strong>Enterprise-friendly:</strong>{' '}Safe to use in air-gapped environments</li>
       </ul>
 
       <h2>🎓 Educational Framework</h2>
@@ -90,12 +90,12 @@ export default function About() {
       <h2>🔧 Professional Tool Integration</h2>
       <p>SafeSpray generates wordlists optimized for integration with industry-standard security tools:</p>
       <ul>
-        <li><strong>Burp Suite Professional:</strong> Intruder payload integration</li>
-        <li><strong>Metasploit Framework:</strong> Auxiliary module compatibility</li>
-        <li><strong>OWASP ZAP:</strong> Fuzzing payload generation</li>
-        <li><strong>Hydra/Medusa:</strong> Credential attack optimization</li>
-        <li><strong>Cobalt Strike:</strong> C2 framework integration</li>
-        <li><strong>Custom SIEM platforms:</strong> Detection rule development</li>
+        <li><strong>Burp Suite Professional:</strong>{' '}Intruder payload integration</li>
+        <li><strong>Metasploit Framework:</strong>{' '}Auxiliary module compatibility</li>
+        <li><strong>OWASP ZAP:</strong>{' '}Fuzzing payload generation</li>
+        <li><strong>Hydra/Medusa:</strong>{' '}Credential attack optimization</li>
+        <li><strong>Cobalt Strike:</strong>{' '}C2 framework integration</li>
+        <li><strong>Custom SIEM platforms:</strong>{' '}Detection rule development</li>
       </ul>
 
       <h2>👨‍💻 About the Author</h2>
@@ -107,7 +107,7 @@ export default function About() {
         <p className="text-gray-300 mb-4">
           I&rsquo;m a cybersecurity specialist who over the past years has led teams, built cloud infrastructure,
           protected sensitive data, analyzed malware, deployed XDR solutions, and automated just about everything
-          (coffee... not yet). I invest heavily in what most ignore: <strong className="text-white">real security from the first line of code</strong>.
+          (coffee... not yet). I invest heavily in what most ignore:{' '}<strong className="text-white">real security from the first line of code</strong>.
         </p>
         <div className="grid md:grid-cols-2 gap-4 mb-6">
           <div className="bg-slate-900 p-4 rounded border border-green-500/30">
@@ -131,16 +131,16 @@ export default function About() {
         </div>
         <p className="text-gray-300 mb-4">
           I work as a DevSecOps architect, AppSec solutions builder, OSINT investigator, and an all-around red/blue teamer.
-          I like building my own tools, hacking my own code, using AI to accelerate investigations, and turning chaos into
-          <strong className="text-cyan-300"> automated pipelines that keep working even under attack</strong>.
+          I like building my own tools, hacking my own code, using AI to accelerate investigations, and turning chaos into{' '}
+          <strong className="text-cyan-300">automated pipelines that keep working even under attack</strong>.
         </p>
         <p className="text-gray-300 mb-6">
           I&rsquo;ve uncovered fraud, helped companies through critical incidents, and built cybersecurity infrastructure focused on
-          prevention, response, and visibility — always with <strong className="text-green-300">ethics, methodology, and a touch of calculated rebellion</strong>.
+          prevention, response, and visibility — always with{' '}<strong className="text-green-300">ethics, methodology, and a touch of calculated rebellion</strong>.
         </p>
         <div className="bg-slate-900 p-4 rounded border border-cyan-500/30 mb-6">
           <p className="text-cyan-300 font-medium">
-            <strong>💡 Philosophy:</strong> If you&rsquo;re looking for someone who understands the underground, knows the tools,
+            <strong>💡 Philosophy:</strong>{' '}If you&rsquo;re looking for someone who understands the underground, knows the tools,
             thinks like an attacker and defends like an architect, we should talk.
           </p>
         </div>
@@ -200,11 +200,11 @@ export default function About() {
         SafeSpray is part of a larger cybersecurity education initiative. We actively collaborate with:
       </p>
       <ul>
-        <li><strong>Academic institutions</strong> for cybersecurity curriculum development</li>
-        <li><strong>Security vendors</strong> for threat intelligence integration</li>
-        <li><strong>Government agencies</strong> for national security education programs</li>
-        <li><strong>Professional organizations</strong> (ISACA, ISC2, SANS) for certification alignment</li>
-        <li><strong>Open source communities</strong> for continuous improvement and innovation</li>
+        <li><strong>Academic institutions</strong>{' '}for cybersecurity curriculum development</li>
+        <li><strong>Security vendors</strong>{' '}for threat intelligence integration</li>
+        <li><strong>Government agencies</strong>{' '}for national security education programs</li>
+        <li><strong>Professional organizations</strong>{' '}(ISACA, ISC2, SANS) for certification alignment</li>
+        <li><strong>Open source communities</strong>{' '}for continuous improvement and innovation</li>
       </ul>
 
       <h2>⚖️ Legal Notice & Ethical Guidelines</h2>
@@ -252,10 +252,10 @@ export default function About() {
       </p>
       <div className="not-prose">
         <ul className="text-gray-300">
-          <li><strong>General inquiries:</strong> LinkedIn or Twitter/X</li>
-          <li><strong>Security issues:</strong> Responsible disclosure via GitHub</li>
-          <li><strong>Educational partnerships:</strong> LinkedIn professional network</li>
-          <li><strong>Technical contributions:</strong> GitHub pull requests and issues</li>
+          <li><strong>General inquiries:</strong>{' '}LinkedIn or Twitter/X</li>
+          <li><strong>Security issues:</strong>{' '}Responsible disclosure via GitHub</li>
+          <li><strong>Educational partnerships:</strong>{' '}LinkedIn professional network</li>
+          <li><strong>Technical contributions:</strong>{' '}GitHub pull requests and issues</li>
         </ul>
       </div>
 
