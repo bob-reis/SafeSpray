@@ -131,7 +131,13 @@ function yearCandidates(birthDate?: string, extra?: string): string[] {
   years.push(String(now))
   years.push(String(now - 1))
   years.push(String(now - 2))
-  if (extra) years.push(extra)
+  if (extra) {
+    // Accept multiple numbers separated by any non-digit separator
+    const tokens = extra.split(/[^0-9]+/).map(t => t.trim()).filter(Boolean)
+    for (const t of tokens) {
+      if (t.length >= 1 && t.length <= 6) years.push(t)
+    }
+  }
   return Array.from(new Set(years.filter(Boolean)))
 }
 
@@ -278,4 +284,3 @@ function buildHandles(input: EmailWordlistInput): string[] {
   users.forEach(u => push(u))
   return handles
 }
-

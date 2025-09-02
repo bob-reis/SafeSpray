@@ -25,10 +25,10 @@ describe('EmailWordlistGenerator downloads', () => {
     fireEvent.change(screen.getByLabelText(/Last name/i), { target: { value: 'User' } })
     fireEvent.click(screen.getByRole('button', { name: /Generate/i }))
 
-    const btn = screen.getByRole('button', { name: /Download emails\.txt/i })
+    // Updated UI: the download button is labeled "Emails"
+    const btn = screen.getByRole('button', { name: /^Emails$/i })
     expect(btn).toBeEnabled()
     fireEvent.click(btn)
     expect(appendSpy).toHaveBeenCalled()
   })
 })
-

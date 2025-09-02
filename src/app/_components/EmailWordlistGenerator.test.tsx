@@ -14,10 +14,10 @@ describe('EmailWordlistGenerator', () => {
     expect(birth.value).toBe('31/12/1999')
     fireEvent.click(screen.getByRole('button', { name: /Generate/i }))
 
-    // Previews show headings
-    expect(screen.getByText(/Emails \(preview\)/i)).toBeInTheDocument()
-    expect(screen.getByText(/Passwords \(preview\)/i)).toBeInTheDocument()
-    expect(screen.getByText(/Usernames \(preview\)/i)).toBeInTheDocument()
+    // Previews show headings (use heading role to avoid duplicates)
+    expect(screen.getByRole('heading', { name: /Email Vectors/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Password Arsenal/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Identity Matrix/i })).toBeInTheDocument()
   })
 
   it('respects provider toggles and custom domain validation', () => {
@@ -37,8 +37,16 @@ describe('EmailWordlistGenerator', () => {
     fireEvent.click(screen.getByRole('button', { name: /Generate/i }))
 
     // Emails preview should not include gmail.com and can include example.com
-    const emailsPreview = screen.getByText(/Emails \(preview\)/i).parentElement as HTMLElement
-    expect(emailsPreview.textContent).not.toMatch(/@gmail\.com/i)
-    expect(emailsPreview.textContent).toMatch(/@example\.com/i)
+    // Locate the Emails list panel using its section marker
+    const emailsPanel = screen.getByText(/\[ENUMERATION TARGETS\]/i).parentElement as HTMLElement
+    expect(emailsPanel.textContent).not.toMatch(/@gmail\.com/i)
+    expect(emailsPanel.textContent).toMatch(/@example\.com/i)
+  })
+
+  it('shows OSINT tooltip on hover over First name label', () => {
+    render(<EmailWordlistGenerator />)
+    const firstNameLabel = screen.getByText(/First name/i)
+    fireEvent.mouseOver(firstNameLabel)
+    expect(screen.getByText(/OSINT Tip:/i)).toBeInTheDocument()
   })
 })
