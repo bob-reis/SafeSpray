@@ -1,0 +1,8 @@
+.next/
+node_modules/
+coverage/
+dist/
+out/
+@agents/
+AGENTS.md
+

@@ -13,7 +13,6 @@ const EmailWordlistGenerator = () => {
   const [dob, setDob] = useState('')
   const [petsText, setPetsText] = useState('')
   const [childrenText, setChildrenText] = useState('')
-  const [spouseName, setSpouseName] = useState('')
   const [favoriteTeam, setFavoriteTeam] = useState('')
   const [result, setResult] = useState<{ emails: string[]; passwords: string[]; usernames: string[] } | null>(null)
 
@@ -53,7 +52,7 @@ const EmailWordlistGenerator = () => {
       birthDate: dob,
       petNames: petsText.split(/[\s,;]+/).map(s => s.trim()).filter(Boolean),
       childrenNames: childrenText.split(/[\s,;]+/).map(s => s.trim()).filter(Boolean),
-      spouseName,
+      spouseName: form.spouseName,
       favoriteTeam,
     }
 
@@ -111,6 +110,10 @@ const EmailWordlistGenerator = () => {
           <div>
             <label htmlFor="fatherName" className="block text-sm mb-1">Father’s name</label>
             <input id="fatherName" type="text" maxLength={64} className="w-full px-3 py-2 bg-dark border border-primary/20 rounded" onChange={e => update('fatherName', e.target.value)} />
+          </div>
+          <div>
+            <label htmlFor="spouseName" className="block text-sm mb-1">Spouse’s name</label>
+            <input id="spouseName" type="text" maxLength={64} className="w-full px-3 py-2 bg-dark border border-primary/20 rounded" value={form.spouseName || ''} onChange={e => update('spouseName', e.target.value)} />
           </div>
           <div>
             <label htmlFor="usernames" className="block text-sm mb-1">Known usernames (comma-separated)</label>
